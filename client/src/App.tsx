@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useWebApp } from './hooks/useWebApp';
 import { motion } from 'framer-motion';
 import { MarketCard, SAMPLE_MARKETS } from '@/components/MarketCard';
+import { Navbar } from '@/components/Navbar';
 
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -44,6 +45,7 @@ const App = () => {
     // </div>
 
     <div className="min-h-screen bg-background">
+      <Navbar isMobileOrTelegram={isMobileOrTelegram} />
       <div className={`${isMobileOrTelegram ? 'max-w-lg' : 'max-w-7xl'} mx-auto px-4 py-6`}>
         {/* Search and Filter Section */}
         <div className="mb-6 flex gap-4 flex-wrap">
