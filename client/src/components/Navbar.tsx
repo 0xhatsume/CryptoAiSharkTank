@@ -12,8 +12,20 @@ export interface NavbarProps {
 
 export function Navbar ({ isMobileOrTelegram }: NavbarProps) {
     return (
-        <div className="border-b">
-            <div className={`${isMobileOrTelegram ? 'max-w-lg' : 'max-w-7xl'} mx-auto px-4 py-3`}>
+        <div className="border-b relative bg-[#020817]">
+
+            {/* Background Image Container */}
+            <div 
+                className="absolute inset-0 opacity-40" 
+                style={{
+                backgroundImage: 'url("/assets/sharksswimming.png")', // Update this path
+                backgroundPosition: 'top',
+                backgroundSize: 'cover',
+                backgroundRepeat: 'no-repeat',
+                }}
+            />
+
+            <div className={`${isMobileOrTelegram ? 'max-w-lg' : 'max-w-7xl'} mx-auto px-4 py-3 relative z-10 backdrop-blur-sm`}>
                 <div className="flex flex-col sm:flex-row sm:items-center sm:h-16 gap-3 sm:gap-0">
                     {/* Logo and Name */}
                     <div className="ml-2 flex items-center space-x-3">
