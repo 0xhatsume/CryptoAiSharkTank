@@ -14,6 +14,8 @@ export const useWebApp = () => {
         // Check if running in Telegram Web App environment
         const webapp = window?.Telegram?.WebApp;
         
+        console.log("is webApp:", webapp)
+        console.log("is mobile device: ", isMobileDevice)
         // Set mobile/telegram state
         setIsMobileOrTelegram(!!webapp || isMobileDevice());
 
