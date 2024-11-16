@@ -42,10 +42,13 @@ const App = () => {
       /> */}
 
       {/* Content */}
-      <div className="relative z-10">
+      <div className="relative z-10 w-full">
         <Navbar isMobileOrTelegram={isMobileOrTelegram} />
         
-        <div className={`${isMobileOrTelegram ? 'max-w-lg' : 'max-w-7xl'} mx-auto px-4 py-6`}>
+        <div className={`mx-auto px-4 py-6 
+          ${isMobileOrTelegram ? 
+          'max-w-lg' : 'max-w-[1400px] w-full'}`}>
+            
           {/* Search and Filter Section */}
           <div className="mb-6 flex gap-4 flex-wrap">
             <div className="relative flex-1 min-w-[200px]">
