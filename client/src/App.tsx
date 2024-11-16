@@ -47,7 +47,7 @@ const App = () => {
       <div className="relative z-10 w-full">
         <Navbar isMobileOrTelegram={isMobileOrTelegram} />
         
-        <div className={`mx-auto px-4 py-6 
+        <div className={`mx-auto px-4 py-6 border border-red-500
           ${isMobileOrTelegram ? 
           'max-w-lg' : 'max-w-[1400px] w-full'}`}>
 
