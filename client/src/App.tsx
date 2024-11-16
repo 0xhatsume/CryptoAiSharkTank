@@ -1,35 +1,41 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useEffect, useState } from 'react';
+import { useWebApp } from './hooks/useWebApp';
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+  const { webApp, isReady } = useWebApp();
+  
+  useEffect(() => {
+    if (webApp) {
+      webApp.ready();
+      // Set the header color if needed
+      webApp.setHeaderColor('#ffffff');
+    }
+  }, [webApp]);
+
+  if (!isReady) {
+    return (
+      <div className="flex h-screen w-full items-center justify-center border border-red-500">
+        <p className="text-lg border border-red-500">Loading...</p>
+      </div>
+    );
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <div className="min-h-screen w-full max-w-lg mx-auto px-4 py-6">
+      <header className="mb-6">
+        <h1 className="text-2xl font-bold">Telegram Web App</h1>
+      </header>
+      
+      <main className="space-y-4">
+        <div className="bg-white rounded-lg shadow p-4">
+          <h2 className="text-xl font-semibold mb-2">Welcome!</h2>
+          <p className="text-gray-600">
+            This is your new Telegram Web App. Start building your features here.
+          </p>
+        </div>
+      </main>
+    </div>
+  );
+};
 
-export default App
+export default App;
