@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Clock, DollarSign } from 'lucide-react';
 import projectsData from '../constants/projects.json';
+import { useNavigate } from 'react-router-dom';
 
 export interface Market {
     id: string;
@@ -43,11 +44,15 @@ const toSentenceCase = (str: string) => {
 };
 
 export const MarketCard = ({ market }: { market: Market }) => {
+    const navigate = useNavigate();
     const timeRemaining = new Date(market.endDate).getTime() - new Date().getTime();
     const daysRemaining = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
 
     return (
-        <Card className="hover:bg-accent/50 transition-colors cursor-pointer">
+        <Card 
+            onClick={() => navigate(`/project/${market.id}`)}
+            className="cursor-pointer hover:shadow-lg transition-shadow"
+        >
             <CardHeader className="p-4">
             <div className="text-sm font-medium">
                 Will
