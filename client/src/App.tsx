@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import { MarketCard, SAMPLE_MARKETS } from '@/components/MarketCard';
 import { Navbar } from '@/components/Navbar';
 
-
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Search, TrendingUp, Clock, DollarSign } from 'lucide-react';
 import { Button } from "@/components/ui/button";
