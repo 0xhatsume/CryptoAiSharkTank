@@ -29,7 +29,7 @@ export function Navbar ({ isMobileOrTelegram }: NavbarProps) {
             {/* ${isMobileOrTelegram ? 'max-w-lg' : 'max-w-7xl'} */}
             <div className={`
                 
-                max-w-7xl mx-auto px-4 py-3 relative z-10 backdrop-blur-sm`}>
+                max-w-7xl mx-auto px-4 py-3 relative backdrop-blur-sm`}>
                 <div className="flex flex-col sm:flex-row sm:items-center sm:h-16 gap-3 sm:gap-0">
                     {/* Logo and Name */}
                     <div className="ml-2 flex items-center space-x-3 mx-3">

@@ -54,7 +54,7 @@ const App = () => {
             <div className="relative flex-1 min-w-[200px]">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               <Input 
-                placeholder="Search markets" 
+                placeholder="Search Projects" 
                 className="pl-9"
               />
             </div>
