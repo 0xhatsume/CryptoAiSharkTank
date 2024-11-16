@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import json
 import os
+import signal
 
 # Function to extract details from a project page
 def scrape_project_details(link):
@@ -56,33 +57,41 @@ def scrape_ethglobal_links_and_details(base_url, start_page, max_pages, json_fil
     headers = {
         "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
     }
-    for page in range(start_page, max_pages + 1):
-        url = f"{base_url}?page={page}"
-        print(f"Scraping page: {page}")
-        response = requests.get(url, headers=headers)
-        if response.status_code != 200:
-            print(f"Failed to fetch page {page}")
-            break
 
-        soup = BeautifulSoup(response.text, 'html.parser')
-        project_links = [f"https://ethglobal.com{link['href']}" for link in soup.select('a.block.border-2.border-black')]
+    try:
+        for page in range(start_page, max_pages + 1):
+            url = f"{base_url}?page={page}"
+            print(f"Scraping page: {page}")
+            response = requests.get(url, headers=headers)
+            if response.status_code != 200:
+                print(f"Failed to fetch page {page}")
+                break
 
-        projects = []
-        for project_link in project_links:
-            details = scrape_project_details(project_link)
-            if details:
-                projects.append(details)
+            soup = BeautifulSoup(response.text, 'html.parser')
+            project_links = [f"https://ethglobal.com{link['href']}" for link in soup.select('a.block.border-2.border-black')]
 
-        save_projects_to_json(json_file, projects)
-        with open(metadata_file, 'w') as f:
-            f.write(str(page))
+            projects = []
+            for project_link in project_links:
+                details = scrape_project_details(project_link)
+                if details:
+                    projects.append(details)
+
+            save_projects_to_json(json_file, projects)
+            with open(metadata_file, 'w') as f:
+                f.write(str(page))
+
+    except KeyboardInterrupt:
+        print("\nScraping interrupted. Progress saved.")
+    finally:
+        print("\nScript exited. Data up to the last saved page has been written to files.")
+
 
 # Usage
 base_url = "https://ethglobal.com/showcase"
 json_file = "ethglobal_projectsdata.json"
 metadata_file = "scraping_metadata.txt"
 start_page = 1  # Adjust based on where to start
-max_pages = 5  # Adjust this based on how many pages to scrape
+max_pages = 369  # Adjust this based on how many pages to scrape # max is 369
 
 scrape_ethglobal_links_and_details(base_url, start_page, max_pages, json_file, metadata_file)
 
