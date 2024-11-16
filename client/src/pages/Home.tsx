@@ -119,7 +119,7 @@ export default function Home() {
                     className="pl-9"
                     />
                 </div>
-                <Button variant="outline">
+                <Button variant="outline" className="bg-blue-900 text-white font-bold">
                     <TrendingUp className="h-4 w-4 mr-2" />
                     Popular
                 </Button>
