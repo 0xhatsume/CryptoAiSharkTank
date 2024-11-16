@@ -11,6 +11,8 @@ import { Input } from "@/components/ui/input";
 
 const App = () => {
   const { webApp, isReady, isMobileOrTelegram } = useWebApp();
+
+  console.log("is telegram: ", isMobileOrTelegram)
   
   useEffect(() => {
     if (webApp) {
@@ -48,7 +50,7 @@ const App = () => {
         <div className={`mx-auto px-4 py-6 
           ${isMobileOrTelegram ? 
           'max-w-lg' : 'max-w-[1400px] w-full'}`}>
-            
+
           {/* Search and Filter Section */}
           <div className="mb-6 flex gap-4 flex-wrap">
             <div className="relative flex-1 min-w-[200px]">
