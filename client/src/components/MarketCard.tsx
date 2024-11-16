@@ -58,7 +58,7 @@ export const MarketCard = ({ market }: { market: Market }) => {
                 </div>
             </CardHeader>
             <CardContent className="p-4 pt-0">
-            <div className="flex justify-between items-center mb-4">
+                <div className="flex justify-between items-center mb-4">
                     <div className="flex gap-4 items-center">
                         <img 
                             src={market.coverImage} 
@@ -83,17 +83,19 @@ export const MarketCard = ({ market }: { market: Market }) => {
                             </div>
                         </div>
                     </div>
-                    <div className="text-right space-y-1">
-                    <div className="flex items-center gap-1 text-sm text-muted-foreground">
-                        <Clock className="h-4 w-4" />
-                        {daysRemaining}d
+                </div>
+                <div className="flex justify-between items-center text-sm text-muted-foreground">
+                    <div className="flex items-center gap-4">
+                        <div className="flex items-center gap-1">
+                            <Clock className="h-4 w-4" />
+                            {daysRemaining}d ({market.endDate})
+                        </div>
+                        <div className="flex items-center gap-1">
+                            <DollarSign className="h-4 w-4" />
+                            {market.volume}
+                        </div>
                     </div>
-                    <div className="flex items-center gap-1 text-sm text-muted-foreground">
-                        <DollarSign className="h-4 w-4" />
-                        {market.volume}
-                    </div>
-                    </div>
-            </div>
+                </div>
             </CardContent>
         </Card>
     );
