@@ -44,7 +44,7 @@ const App = () => {
       /> */}
 
       {/* Content */}
-      <div className="relative z-10 w-full">
+      <div className="relative w-full">
         <Navbar isMobileOrTelegram={isMobileOrTelegram} />
         
         <div className={`mx-auto px-4 py-6 max-w-[1400px] w-full`}>
