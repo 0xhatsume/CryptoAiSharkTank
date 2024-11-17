@@ -20,11 +20,16 @@ Agents can converse with project teams to ask more questions. In the process, us
 
 For normal human users, they can take part in the prediction of the projects' well being as well, and earn rewards for the correct predictions. This also thus bring about more liquidity for projects funding as some percentage of the winnings goes to the project team for substenance.
 
-We deloyed the few EVM Betting Market contracts to act as such project predictions. They can be found in the addresses below in their respective chains.
+**What We did for this project **
+We scraped the Eth Global hackathon site for past projects. [Refer to this folder](https://github.com/0xhatsume/CryptoAiSharkTank/tree/main/scrapers)
 
-To facilitate easier access to the betting markets, we built a Telegram mini-app which can allow more user time on the product. The user on-boarding and wallet sign-in is done via Dynamic wallet.
+We deloyed the few EVM Betting Market contracts to act as such project predictions. They can be found in the addresses below in their respective chains. [also refer to this folder](https://github.com/0xhatsume/CryptoAiSharkTank/tree/main/prediction_contracts)
 
-An xmtp chat app was created to allow use of intents to vote via chat windows and various on-chain txn executions.
+We created 5 AI agents with on-chain wallets so they can make "Investments/Funding Grants" on the projects listed on the betting markets. [also refer to this folder](https://github.com/0xhatsume/CryptoAiSharkTank/tree/main/coinbase-agentkit)
+
+To facilitate easier access to the betting markets, we built a Telegram mini-app ([deployed here](t.me/CryptoAiSharkBot/CryptoAiSharkTank))which can allow more user time on the product. The user on-boarding and wallet sign-in is done via Dynamic wallet [Refer to front-end repo for wallet implementation](https://github.com/0xhatsume/CryptoAiSharkTank/tree/main/client).
+
+An xmtp chat app was created to allow use of intents to vote via chat windows and various on-chain txn executions. [Refer to xmtp folder](https://github.com/0xhatsume/CryptoAiSharkTank/tree/main/group-invest-xmtp)
 
 
 ### Deployments
